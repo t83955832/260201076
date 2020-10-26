@@ -11,6 +11,5 @@ elif 1<=day<=22 and month=="September" or month=="October" or month=="November":
     print("Fall")
 elif 1<=day<=21 and month=="December" or month=="January" or month=="February":
     print("Winter")
-
 else:
     print("more pay attention")
