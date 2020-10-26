@@ -1,7 +1,4 @@
-
-busPrice=3
-getAge=int(input("enter your age"))
-
+busPrice,getAge=3,int(input("enter your age"))
 if getAge<6 or getAge>=60:
     print("free")
 elif 6<=getAge<=18:
