@@ -9,3 +9,8 @@ elif delt==0:
     print("there is one reels root")
 else:
     print("there are no reels root")
+
+
+
+
+
