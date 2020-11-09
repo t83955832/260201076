@@ -1,9 +1,12 @@
 a=int(input())
 b=int(input())
+power=1
+if b>0:
+   for i in range(0,b,1):
+       power*=a
 
-if b<0:
-    print("pay more attention")
 else:
-    x=pow(a,b)
+    for i in range(0,b,-1):
+        power/=a
 
-print(x)
+print(power)
