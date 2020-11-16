@@ -6,7 +6,7 @@ while True:
         break
     else:
         if password=="help":
-            print(str(definePassword[0]))
+            print(definePassword[0])
         else:
             print("Wrong")
             
