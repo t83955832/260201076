@@ -1,2 +1,2 @@
 language = "python3"
-run = "python lab5/ex4.py"
+run = "python lab5/fibonacci.py"
