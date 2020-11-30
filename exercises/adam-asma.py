@@ -1,6 +1,7 @@
 import random
+
 #You can add the words what you want
-myList=["pencil","book","mouse","observe","dog","university","school","lecture","engineer","keyboard","hardware","software"].lower()
+myList=["pencil","book","mouse","observe","dog","university","school","lecture","engineer","keyboard","hardware","software"]
 #your rights to play the game.
 trial = int(input("How many trials do you want ? Expect { 0 }  : "))
 point =  100 / trial

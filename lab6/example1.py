@@ -16,11 +16,3 @@ else:
     print("Not equal")
 
 print("Not equal")
-
-
-
-
-
-
-
-
