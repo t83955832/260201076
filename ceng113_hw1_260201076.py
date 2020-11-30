@@ -9,7 +9,6 @@ for i in range(len(newEquation1)):
         newItem += newEquation1[i]  # if you want to include the delimiter
     else: newItem += newEquation1[i]
 if newItem != "": splittedList.append(newItem)  # add the last item to output list
-
 for i in range(len(newEquation2)):
     if newEquation2[i] in ["+","-"]:
         if newItem2 != "": splittedList2.append(newItem2)
@@ -17,24 +16,18 @@ for i in range(len(newEquation2)):
         newItem2 += newEquation2[i]  # if you want to include the delimiter
     else: newItem2 += newEquation2[i]
 if newItem2 != "": splittedList2.append(newItem2)  
- 
 a,b,c,d,e,f = 0,0,0,0,0,0
-
 for item in splittedList:
     if item[-1] == "x": a += int(item[:-1])
     elif item[-1] == "y": b += int(item[:-1])
     else: c += int(item)
-
 print("Equations in the simplified form:")
-
 if b < 0:print(str(a)+"x"+str(b)+"y"+"="+str(-c))
 else:print(str(a)+"x"+"+"+str(b)+"y"+"="+str(-c))
-
 for item in splittedList2:
     if item[-1] == "x": d += int(item[:-1])
     elif item[-1] == "y": e += int(item[:-1])
     else: f +=int(item)
-
 if e < 0:print(str(d)+"x"+str(e)+"y"+"="+str(-f))
 else:print(str(d)+"x"+"+"+str(e)+"y"+"="+str(-f))
 c*=-1
@@ -45,5 +38,4 @@ last_eq_b=b+(a_divide_d)*e
 result_y=last_eq_c/last_eq_b
 result_x=(c-(b*result_y))/a
 print("Solution:")
-print("x="+str(int(result_x)))
-print("y="+str(int(result_y)))
+print("x="+str(int(result_x))+"\n"+"y="+str(int(result_y)))
