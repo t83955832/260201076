@@ -44,13 +44,4 @@ while trial!=0:
         trial-=1
         print("Trial : ",trial)
     enteredInputs.append(predictOfUser)
-print("Score : ",trial*point)
-
-        
-
-
-    
-    
-
-
-
+print("Score : ",trial*point)     
