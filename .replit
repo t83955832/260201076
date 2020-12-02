@@ -1,5 +1,5 @@
 language = "python3"
-run = "python 1.py"
+run = "python ceng113_hw1_260201076.py"
 
 
 

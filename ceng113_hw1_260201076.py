@@ -3,8 +3,6 @@ newEquation1=eq1.split("=")[0]+eq1.split("=")[1].replace("-","_").replace("+","-
 newEquation2=eq2.split("=")[0]+eq2.split("=")[1].replace("-","_").replace("+","-").replace("_","+")
 splittedList,splittedList2,newItem,newItem2 = [],[],"",""
 
-
-
 for i in range(len(newEquation1)):
     if newEquation1[i] in ["+","-"]:
         if newItem != "": splittedList.append(newItem)
