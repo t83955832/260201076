@@ -7,5 +7,5 @@ best_three_salaries = sorted(employees.values())[-3:]
 for name in employees.keys():
     salary = employees[name]
     if salary in best_three_salaries:
-        print(name)
+        print(sorted(name))
     
