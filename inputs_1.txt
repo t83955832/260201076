@@ -1,3 +1,7 @@
-Izmir
-Ankara
-Car
+1
+ali
+1234
+6
+4
+5
+

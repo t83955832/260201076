@@ -1,5 +1,5 @@
 language = "python3"
-run = "python lab8/ex5.py"
+run = "python grader.py"
 
 
 
