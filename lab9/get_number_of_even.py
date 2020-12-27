@@ -1,9 +1,12 @@
-
+def rec(l,counter):
+    if len(l)==0:
+        return counter
+    elif l[0]%2==1:
+        return rec(l[1:],counter)
+    else:
+        counter+=1
+        return rec(l[1:],counter)
+        
 numbers=[0,1,2,3,4,5]
-def rec(l):
-    counter=0
-    for _ in l:
-        if _%2==0:
-            counter+=1
-    return counter
-print(rec(numbers))
+counter=0
+print(rec(numbers,counter))

@@ -1,0 +1,4 @@
+emre;emre12;1234;25.12.2020;bursa,izmir;45
+bugra;bugra76;5678;27.12.2020;istanbul,izmir;60
+acelya;acelya15;9876;24.12.2020;samsun,izmir;90
+tuna;tuna13;1352;30.12.2020;duzce,adana;105

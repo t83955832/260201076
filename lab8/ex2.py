@@ -5,10 +5,10 @@ def is_prime(n):
         if n%x==0:
             return False
     return True
-def print_primes_between(n,m):
+def primesBetween(n,m):
     for x in range(n,m):
         if is_prime(x):
             print(x)
-num1=int(input("first number : "))
-num2=int(input("first number : "))
-print(print_primes_between(num1,num2))
+num1=int(input("number1 : "))
+num2=int(input("number2 : "))
+print(primesBetween(num1,num2))

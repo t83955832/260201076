@@ -101,12 +101,10 @@ def menu():
     menu_text=int(input("1. Log in / change user\n2. Create new user\n3. Add friend\n4. Show my friends\n5. Exit\n"))
     return menu_text
 
-def main():
+def main(logged_user):
     while True:
-        global friends
         menu_text=menu()
         if menu_text==1:
-            global logged_user
             logged_user=Login(friends)
         elif menu_text==2:
             registerUser(friends)
@@ -124,4 +122,4 @@ def main():
             exitt(friends)
         else:
             print("Invalid option\n")
-main()
+main(logged_user)
