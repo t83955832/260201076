@@ -1,5 +1,5 @@
 language = "python3"
-run = "python lab9/get_number_of_even.py"
+run = "python lab10/ex1.py"
 
 
 
