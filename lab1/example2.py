@@ -4,14 +4,14 @@ texts=file.readlines()
 texts="".join(texts).split(" ")
 letters=input("Enter a list of letters:")
 mylet=""
-for i in letters:
-    if i.isalpha():
-        mylet+=i
-
-if letters=="":
-    print("Invalid input.")
-
 while letters!="quit":
+    
+    if letters=="":
+        print("Invalid input.")
+
+    for i in letters:
+        if i.isalpha():
+            mylet+=i
     for letter in letters:
         longestWord=""
         for word in mylet:
