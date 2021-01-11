@@ -1,0 +1,23 @@
+Departure province:
+Province not found!
+Departure province:
+Province not found!
+Possible provinces:KAHRAMANMARAS,KARABUK,KARAMAN,KARS,KASTAMONU,KAYSERI
+Departure province:
+Arrival province:
+Enter a different province!
+Arrival province:
+Province not found!
+Arrival province:
+Province not found!
+Possible province:ANTALYA
+Arrival province:
+Enter travel type:
+Enter travel type:
+Enter travel type:
+
+I am calculating the distance between ANKARA and ANTALYA ...
+
+Distance: 371.98 km
+Approximate travel time with MOTORCYCLE: 4 hours 38 minutes
+Recommended places close to ANKARA:CANKIRI,KARABUK,KIRIKKALE

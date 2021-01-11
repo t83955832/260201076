@@ -1,15 +1,11 @@
-def isAnagram(str1,str2):
-    count=0
-    for _ in str1:
-        for x in str2:
-            if _==x:
-                count=count+1
+def pairStar(mytxt):
+    addstarToMytxt="*"
+    if len(mytxt)<2:
+        return mytxt
 
-    if count==len(str1):
-        return print("anagram")
+    if mytxt[0]==mytxt[1]:
+        return mytxt[0] + addstarToMytxt + pairStar(mytxt[1:])
     else:
-        return print("not anagram")
-
-str1=input("Enter string 1:")
-str2=input("Enter string 2:")
-isAnagram(str1,str2)
+        return mytxt[0] + pairStar(mytxt[1:])
+        
+print(pairStar("hello"))

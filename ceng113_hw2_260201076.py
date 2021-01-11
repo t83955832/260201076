@@ -95,4 +95,3 @@ while True:
             possible_provinces_departure=[]
         departure   =   input("Departure province:\n").upper()
 file.close()
-
