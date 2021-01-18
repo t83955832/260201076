@@ -1,15 +1,15 @@
 def s_sort(numbers):
-    
+
     for x in range(len(numbers)-1): 
-        minValueOfIndex = x
+        minValueOfIndex              = x
 
         for y in range(x + 1,len(numbers)):
-            if numbers[y] < numbers[minValueOfIndex] :
-                minValueOfIndex = y
+            if numbers[y] < numbers[minValueOfIndex]:
+                minValueOfIndex      = y
 
         if minValueOfIndex != x:
-            temp = numbers[x]
-            numbers[x] = numbers[minValueOfIndex]
+            temp                     = numbers[x]
+            numbers[x]               = numbers[minValueOfIndex]
             numbers[minValueOfIndex] = temp
 
     return numbers
