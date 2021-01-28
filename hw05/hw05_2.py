@@ -35,7 +35,7 @@ class Gamebot:
 
 
         #----------------------------------------------------------------
-        # Comments of TA's
+        # Comments of Nesli Erdogmus
         # input: tip: a string entered by the player in the form of "loc1,loc2*,loc3*,tip"
         # where * indicates optionality and tip is either a value or a color.
         # e.g. "1,2,w" or "2,3" or "1,2,3,2"
@@ -47,34 +47,22 @@ class Gamebot:
         self.count_deck.remove(card)
 
         #-----------------------------------------------
-        #Comments Of TA's
+        #Comments Of Nesli Erdogmus
         # input: card to be removed
         # output: none
         # card is removed from the count_deck of the bot.
         #-----------------------------------------------
         
 
-    def update_hand(self,num,lengthOfCompHand):
-
-        lengthOfSelfHand=len(self.hand)
-
-        if lengthOfCompHand ==lengthOfSelfHand:
-            self.hand[num-1]=["!",-1]
-
-        else:
-            self.hand.pop(num-1)
-
-
-
-
+    def update_hand(self,num):
+        
+        self.hand[num-1]=["!",-1]
         #---------------------------------------------------------
-        #Comments of TA's
+        #Comments of Nesli Erdogmus
         # input: num: location of the card to be removed from the bot's hand
         # output: none
         # A card is removed from the bot's hand according to the given input and a new one is appended.
         #----------------------------------------------------------
-
-
     def give_tip(self):
 
         playerHand={1:[],2:[],3:[],4:[],"w":[],"b":[]}
@@ -95,26 +83,18 @@ class Gamebot:
         
         
         if len(playerHand[keyOfTip])>=3:
-
             return tipsOfBot[0]+","+tipsOfBot[1]+","+str(tipsOfBot[2])+","+str(tipsOfBot[3])
-
         else:
-
             if len(playerHand[keyOfTip])>=2:
                 return tipsOfBot[0]+","+str(tipsOfBot[1])+","+str(tipsOfBot[2])
-
             else:
-
                 if len(playerHand[keyOfTip])>=1:
                     return str(tipsOfBot[0])+","+str(tipsOfBot[1])
-
                 else:
                     pass
 
-
-
         #---------------------------------------------------------------------------------------------
-        #Comments of TA's
+        #Comments of Nesli Erdogmus
         # input: none
         # output: a string created by the bot in the form of "loc1,loc2*,loc3*,tip"
         # where * indicates optionality and tip is either a value or a color.
@@ -126,17 +106,14 @@ class Gamebot:
 
     def pick_stack(self):
         #self.hand = [["b",1],["w",1],["w",2]]
-        #stack = [[],[]]
         for x in self.hand:
-
             if "b" in x:
                 if len(self.stack[0])+1==x[1]:
                     return [x[0],x[1]]
                 else:
                     pass
-
             elif "w" in x:
-                if len(self.stack[1])+1 ==x[1]:
+                if len(self.stack[0])+1 ==x[1]:
                     return [x[0],x[1]]
                 else:
                     pass
@@ -144,13 +121,11 @@ class Gamebot:
         return -1
 
 
-        #----------------------------------------------------------------------------------
-        #Comments of TA's
+
         # input: none
         # output: If possible, the location of the card to be placed in the stack, otherwise -1. Minimal
         # the requirement for this function is to find the card to be stacked with 100% certainty.
         # BONUS: Smarter decision-making algorithms can be implemented.
-        #----------------------------------------------------------------------------------
         
 
     def pick_discard(self):
@@ -161,28 +136,24 @@ class Gamebot:
         # [["b",1],["b",3],["w",1]]
         # 1
         # ["!",-1] 
-
-        unknown =   ["!",-1]
         for x in self.hand:
-
             if x in (self.stack[0],self.stack[1]):
                 return self.hand.index(x)
             else:
                 pass
         
-        if unknown in self.hand:
-            return self.hand.index(unknown)
+        if ["!",-1] in self.hand:
+            return self.hand.index(["!",-1])
             
         else:
-
             for x in self.hand:
-                if unknown[0] in x:
+                if "!" in x:
                     return self.hand.index(x)
-                elif unknown[1] in x:
+                elif -1 in x:
                     return self.hand.index(x)
                 else:
                     pass
-        
+
             #----
             #for x in self.play_hand:
                 #if x in self.hand:
@@ -191,22 +162,18 @@ class Gamebot:
                     #pass
 
 
-        #----------------------------------------------------------------------------------
-        #Comments of TA's
+
         # input: none
         # output: The location of the card to be discarded. Minimal requirement for this function is that,
         # if possible, the bot picks the card that is already in the stack. If this is not the case,
         # the bot picks the card of which it has minimum information.
         # BONUS: Smarter decision-making algorithms can be implemented.
-        #----------------------------------------------------------------------------------
         
 
 def shuffle(deck):
-
     lengthOfDeck=len(deck)
     # we define a variable named lengthOfDeck 
     while lengthOfDeck!=0:# As long as the number of elements of the deck is not 0, loop will run.
-        
         lengthOfDeck=lengthOfDeck-1
         rnd=random.choice(deck)#this choice method gives us that random element in the deck 
         
@@ -217,7 +184,7 @@ def shuffle(deck):
     
 
     #---------------------------
-    # Comments of TA's
+    # Comments of Nesli Erdogmus
     # input: deck to be shuffled
     # output: none
     # shuffle the deck
@@ -237,20 +204,17 @@ def print_menu():
 def update_hand(hand,deck,num):
 
     if len(deck)!=0:
-
-        remCard     =   hand[num-1]
-        hand[num-1] =   deck[0]
+        remCard=hand[num-1]
+        hand[num-1]=deck[0]
         deck.remove(deck[0])
-
     else:
-        
-        remCard     =   hand[num-1]
+        remCard=hand[num-1]
         hand.pop(num-1)
 
     return remCard
 
     #---------------------------------------------------------------------------------------
-    # Comments of TA's
+    # Comments of Nesli Erdogmus
     # input: hand to be updated,current deck and the location of the card to be removed
     # output: removed card
     # This function is called when a card is played (either stacked or discarded). It removes
@@ -259,7 +223,6 @@ def update_hand(hand,deck,num):
     #---------------------------------------------------------------------------------------
 
 def try_stack(card,stack,trash,lives):
-    #REMİND MYSELF
     #stack [[],[]] 0 means black , 1 means white
     #["b",2]
     #b 2
@@ -272,18 +235,16 @@ def try_stack(card,stack,trash,lives):
 
             #strOfCard       =   strOfCard[2]+" "+strOfCard[0]
             stack[0].append(card)
-            return lives
 
-            
+            return lives
         else:
             #add to trash
             trash.append(card)
             trash=sorted(trash)
             
             lives=lives-1
+            
             return lives
-            
-            
 
     elif "w" == card[0]:
         if len(stack[1])+1==card[1]:
@@ -291,9 +252,8 @@ def try_stack(card,stack,trash,lives):
             # I change it 1w,2w,3w,4w instead of w1,w2,w3,w4
             #strOfCard       =   strOfCard[2]+" "+strOfCard[0]
             stack[1].append(card)
-            return lives
 
-            
+            return lives
         else:
             #add to trash
             trash.append(card)
@@ -301,90 +261,15 @@ def try_stack(card,stack,trash,lives):
             
             lives           =   lives-1
             return lives
-            
     else:
         pass
 
 
-    """
-    if "b" in card[0]:
-        if len(stack[0])!=0:
-            for x in stack[0]:
-                if card[1]!=stack[0][len(stack[0])-1]:
-                    if len(stack[0])>2:
-                        if card[1]==stack[0][len(stack[0])-1][1]+1:
-                            stack[0].append(card)
-                            return lives
-                        else:
-                            trash.append(card)
-                            lives-=1
-                            return lives
-                    else:
-                        if len(stack[0])==2:
-                            if card[1]==stack[0][1]+1:
-                                stack[0].append(card)
-                                return lives
-                            else:
-                                trash.append(card)
-                                lives-=1
-                                return lives
-                else:
-                    trash.append(card)
-                    lives-=1
-                    return lives
-        else:
-            if card[1]==1:
-                stack[0].append(card)
-                return lives
-            else:
-                trash.append(card)
-                lives-=1
-                return lives
 
-        
 
-    elif "w" in card[0]:
-        if len(stack[1])!=0:
-            for x in stack[1]:
-                if card[1] != stack[1][len(stack[1])-1]:
-                    if len(stack[1])>2:
-                        if card[1]==stack[1][len(stack[1])-1][1]+1:
-                            stack[1].append(card)
-                            return lives
-                        else:
-                            
-                            trash.append(card)
-                            lives-=1
-                            return lives
-                    else:
-                        if len(stack[1])==2:
-                            if card[1]==stack[1][1]+1:
-                                stack[1].append(card)
-                                return lives
-                            else:
-                                trash.append(card)
-                                lives-=1
-                                return lives
-                        
-                else:
-                    
-                    trash.append(card)
-                    lives-=1
-                    return lives
-        else:
-            if card[1]==1:
-                stack[1].append(card)
-                return lives
-            else:
-                trash.append(card)
-                lives-=1
-                return lives
-    else:
-        pass
-    """
 
     #-----------------------------------------------------------------------------
-    #Comments of TA's
+    #Comments of Nesli Erdogmus
     # input: the card to be stacked, current stack, current trash, number of lives
     
     # output: updated number of lives
@@ -396,18 +281,14 @@ def try_stack(card,stack,trash,lives):
     
 
 def discard(card,trash,tips):
-
     trash.append(play_hand[card-1])
     tips    =   tips+1 
     print(tips)
-    trash   =   sorted(trash)
+    trash=sorted(trash)
     print(trash)
     return tips
-
-
-
     #-------------------------------------------------------------------
-    #Comments of TA's
+    #Comments of Nesli Erdogmus
     # input: the card to be discarded, the current trash, number of tips
     # output: updated number of tips
     # This function appends the card to the trash, re-sorts it and increases the number of tips by 1.
@@ -416,12 +297,12 @@ def discard(card,trash,tips):
 
 print("Welcome! Let's play!")
 print_menu()
-deck    = [['b',1],['b',1],['b',1],['b',2],['b',2],['b',3],['b',3],['b',4],
-            ['w',1],['w',1],['w',1],['w',2],['w',2],['w',3],['w',3],['w',4]]
-stack   = [[],[]] #0 means black, 1 means white
-trash   = []
-lives   = 2
-tips    = 3
+deck = [['b',1],['b',1],['b',1],['b',2],['b',2],['b',3],['b',3],['b',4],
+        ['w',1],['w',1],['w',1],['w',2],['w',2],['w',3],['w',3],['w',4]]
+stack = [[],[]] #0 means black, 1 means white
+trash = []
+lives = 2
+tips = 3
 shuffle(deck)
 
 # First hands are dealt.
@@ -429,13 +310,13 @@ comp_hand =deck[0:3] # TODO: obtain cards (3 cards) from deck
 play_hand =deck[3:6] # TODO: obtain cards (3 cards) from deck
 
 del deck[0:6]
-bot     = Gamebot(play_hand,stack)  # Gamebot object is created.
-turn    = 0                        # 0 means player, 1 means computer. So for each game, the player starts.
+bot = Gamebot(play_hand,stack)  # Gamebot object is created.
+turn = 0                        # 0 means player, 1 means computer. So for each game, the player starts.
 while True:
-    #print(deck)
-    #print("Player Hand : ",play_hand)
-    print("Hand of Computer :",comp_hand)
     if turn == 0:
+        print(deck)
+        print(play_hand)
+        print(comp_hand)
         inp = input("Your turn:")
         if inp == 'v':
             print("Computer's hand:",comp_hand)
@@ -444,18 +325,17 @@ while True:
             print("Current stack:")
             print("Black:", stack[0])
             print("White:", stack[1])
-            trash=sorted(trash)
             print("Current trash:",trash)
         elif inp == "t":
             if tips > 0:
-                turn    =   1        # Switch turns.
-                tip     =   input("Player gives a tip:\n")
+                turn = 1        # Switch turns.
+                tip=input("Player gives a tip:\n")
                 bot.get_tip(tip)
-                tips    =   tips-1
+                tips=tips-1
                 print("Tips:",tips)
 
                 #--------------------------------
-                #Comments of TA's
+                #Comments of Nesli Erdogmus
                 # Take a tip from the player, give it to the bot, update and print the number of tips.
                 #---------------------------------------
 
@@ -470,7 +350,6 @@ while True:
             returnedLives=try_stack(play_hand[StackedOrderNumberOfCard-1],stack,trash,lives)
             if lives!=returnedLives:
                 lives=returnedLives
-                update_hand(play_hand,deck,StackedOrderNumberOfCard)
             else:
                 update_hand(play_hand,deck,StackedOrderNumberOfCard)
 
@@ -478,22 +357,17 @@ while True:
             # Take the location of the card to be stacked from the player,
             # update hands and bot's count_deck and try to stack the selected card.
         elif inp == "d":
-            if len(play_hand)!=0:
+            if len(deck)!=0:
                 turn = 1  
                 DiscardedOrderNumberOfCard=int(input("Player discards a card:\n")) 
                 tips=discard(DiscardedOrderNumberOfCard,trash,tips)
                 update_hand(play_hand,deck,DiscardedOrderNumberOfCard)
-                #If there are no more cards to be dealt in the deck and the player has 3 cards , we need to check if any of them are discarded, as the player's hand corrupted.
-                if len(deck)!=0:
-                    bot.update_count_deck(play_hand[DiscardedOrderNumberOfCard-1])
-                else:
-                    pass
-
+                bot.update_count_deck(play_hand[DiscardedOrderNumberOfCard-1])
             else:
-                print("Wrong Move")
+                print("Wrong Move.")
             
             #----------------------------------------------------------------
-            #Comments of TA's
+            #Comments of Nesli Erdogmus 
             # Switch turns.
             # Take the location of the card to be discarded from the player,
             # update hands and bot's count_deck and discard the selected card.
@@ -515,50 +389,40 @@ while True:
             tips=tips-1
             print("Tips:",tips)
             #---------------------------------------------------------------
-            #Comments of TA's
+            #Comments of Nesli Erdogmus
             # Take a tip from the bot. Update the number of tips. Print both
             # the given tip by the bot and the updated number of tips.
             #---------------------------------------------------------------
         else:
-            
-            if len(comp_hand)!=0:
-                pickStackOfBot=bot.pick_stack()
-                if pickStackOfBot==-1:
+            pickStackOfBot=bot.pick_stack()
+            print(pickStackOfBot)
+            if pickStackOfBot==-1:
                 
-                    pickDiscardOfBot=bot.pick_discard()
-                    tips=tips+1
-                    print("Computer discards a card:")
-                    x=pickDiscardOfBot+1
-                    print(x)
-                    trash.append(comp_hand[pickDiscardOfBot])
-                    update_hand(comp_hand,deck,x)
-                    #As we cannot interfere with the length of self.hand in the class named gamebot, I have to send the length of the hand of the computer to the function named update_hand in the class outside the class.
-                    bot.update_hand(x,len(comp_hand))
-                    
+                pickDiscardOfBot=bot.pick_discard()
+                tips=tips+1
+                print("Computer discards a card:")
+                x=pickDiscardOfBot+1
+                print(x)
+                trash.append(comp_hand[pickDiscardOfBot])
+                update_hand(comp_hand,deck,x)
+                
+
+
+            else:
+
+                if "b" in pickStackOfBot:
+                    print("Computer stacks a card:")
+                    print("bilgisayarın eli :",comp_hand)
+                    print(comp_hand.index(pickStackOfBot)+1)
+                    stack[0].append(pickStackOfBot)
+                    update_hand(comp_hand,deck,comp_hand.index(pickStackOfBot)+1)
 
                 else:
-
-                    if "b" in pickStackOfBot:
-                        print("Computer stacks a card:")
-                        print(comp_hand.index(pickStackOfBot)+1)
-                        stack[0].append(pickStackOfBot)
-                        update_hand(comp_hand,deck,comp_hand.index(pickStackOfBot)+1)
-                        #As we cannot interfere with the length of self.hand in the class named gamebot, I have to send the length of the hand of the computer to the function named update_hand in the class outside the class.
-                        bot.update_hand(comp_hand.index(pickStackOfBot)+1,len(comp_hand))
-                        
-
-                    elif "w" in pickStackOfBot:
-                        print("Computer stacks a card:")
-                        print(comp_hand.index(pickStackOfBot)+1)
-                        stack[1].append(pickStackOfBot)
-
-                        update_hand(comp_hand,deck,comp_hand.index(pickStackOfBot)+1)
-                        #As we cannot interfere with the length of self.hand in the class named gamebot, I have to send the length of the hand of the computer to the function named update_hand in the class outside the class.
-                        bot.update_hand(comp_hand.index(pickStackOfBot)+1,len(comp_hand))
-                    else:
-                        pass
-            else:
-                print("Wrong Move.")
+                    print("Computer stacks a card:")
+                    print("bilgisayarın eli :",comp_hand)
+                    print(comp_hand.index(pickStackOfBot)+1)
+                    stack[1].append(pickStackOfBot)
+                    update_hand(comp_hand,deck,comp_hand.index(pickStackOfBot)+1)
 
 
 
